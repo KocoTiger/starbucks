@@ -1,24 +1,6 @@
-// 돋보기 부분 시작
-const searchEl = document.querySelector('.search');
-const searchInputEl = searchEl.querySelector('input');
-
-searchEl.addEventListener('click', function(){
-  searchInputEl.focus();
-});
-
-searchInputEl.addEventListener('focus', function(){
-  searchEl.classList.add('focused');
-  searchInputEl.setAttribute('placeholder', '통합검색');
-});
-
-searchInputEl.addEventListener('blur', function(){
-  searchEl.classList.remove('focused');
-  searchInputEl.setAttribute('placeholder', '');
-});
-// 돋보기 부분 끝
-
 // 배지부분에서 lodash모듈의 throttle()실행
 const badgeEl = document.querySelector('header .badges');
+// #to-top (페이지 최상단 이동 버튼)
 const toTopEl = document.querySelector('#to-top');
 
 window.addEventListener('scroll', _.throttle(function(){
@@ -30,6 +12,7 @@ window.addEventListener('scroll', _.throttle(function(){
       opacity:0,
       display:'none'
     });
+    // #to-top (페이지 최상단 이동 버튼)
     // to-top 버튼 보이기
     gsap.to(toTopEl, .2, {
       x:0
@@ -40,6 +23,7 @@ window.addEventListener('scroll', _.throttle(function(){
       opacity:1,
       display:'block'
     });
+    // #to-top (페이지 최상단 이동 버튼)
     // to-top 버튼 숨기기
     gsap.to(toTopEl, .2, {
       x:100
@@ -160,10 +144,3 @@ spyEls.forEach(function(spyEl){
   .setClassToggle(spyEl, 'show')
   .addTo(new ScrollMagic.Controller());
 });
-
-// footer의 this-year 작업
-const thisYear = document.querySelector('.this-year');
-thisYear.textContent = new Date().getFullYear();
-
-// #to-top (페이지 최상단 이동 버튼)
-
